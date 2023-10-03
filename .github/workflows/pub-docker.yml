@@ -24,13 +24,15 @@ jobs:
           docker tag helloworld 244530008913.dkr.ecr.eu-west-1.amazonaws.com/diy-ecr
           docker push 244530008913.dkr.ecr.eu-west-1.amazonaws.com/diy-ecr
 
-      - name: Build and push to Docker hub
+      - name: Build and push to Docker Hub
         env: 
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_IMAGE: "helloworld_app"
         run: |
           docker build . --tag $DOCKER_IMAGE
-          docker login --username tobiasliu1 --password $DOCKER__PASSWORD
+          docker login --username tobiasliu1 --password $DOCKER_PASSWORD
           docker tag $DOCKER_IMAGE tobiasliu1/$DOCKER_IMAGE
           docker push tobiasliu1/$DOCKER_IMAGE
-          
+
+      - name: Logout from Docker Hub
+        run: docker logout
