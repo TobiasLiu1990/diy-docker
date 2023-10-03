@@ -27,7 +27,7 @@ jobs:
       - name: Build and push to Docker hub
         env: 
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_IMAGE: ${{ helloworld-app }}
+          DOCKER_IMAGE: "helloworld_app"
         run: |
           docker build . --tag DOCKER_IMAGE
           docker login --username tobiasliu1 --password DOCKER__PASSWORD
