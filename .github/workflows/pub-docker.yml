@@ -29,8 +29,8 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_IMAGE: "helloworld_app"
         run: |
-          docker build . --tag DOCKER_IMAGE
-          docker login --username tobiasliu1 --password DOCKER__PASSWORD
-          docker tag DOCKER_IMAGE tobiasliu1/DOCKER_IMAGE
-          docker push tobiasliu1/DOCKER_IMAGE
+          docker build . --tag $DOCKER_IMAGE
+          docker login --username tobiasliu1 --password $DOCKER__PASSWORD
+          docker tag $DOCKER_IMAGE tobiasliu1/$DOCKER_IMAGE
+          docker push tobiasliu1/$DOCKER_IMAGE
           
