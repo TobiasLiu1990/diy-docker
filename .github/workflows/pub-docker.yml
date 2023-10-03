@@ -29,10 +29,10 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_IMAGE: "helloworld_app"
         run: |
-          docker build . --tag $env.DOCKER_IMAGE
-          docker login --username tobiasliu1 --password $env.DOCKER_PASSWORD
-          docker tag $env.DOCKER_IMAGE tobiasliu1/$env.DOCKER_IMAGE
-          docker push tobiasliu1/$env.DOCKER_IMAGE
+          docker build . --tag $DOCKER_IMAGE
+          docker login --username tobiasliu1 --password $DOCKER_PASSWORD
+          docker tag $DOCKER_IMAGE tobiasliu1/$DOCKER_IMAGE
+          docker push tobiasliu1/$DOCKER_IMAGE
 
       - name: Logout from Docker Hub
         run: docker logout
